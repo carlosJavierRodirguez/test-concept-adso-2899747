@@ -23,7 +23,7 @@
 ## Module: Users
 - **user** {id, name, email, password_hash, role_id, profile_id}  
 - **role** {id, name, description}  
-- **profile** {id, avatar_url, preferences, country}  
+- **profile** {id, name, avatar_url, preferences, country}  
 
 ---
 
