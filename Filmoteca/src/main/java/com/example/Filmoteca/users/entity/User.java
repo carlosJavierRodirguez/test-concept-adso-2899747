@@ -11,6 +11,10 @@ import lombok.EqualsAndHashCode;
 @Table(name = "user", schema = "users")
 @Schema(name = "user", description = "Entidad que representa un usuario")
 public class User extends AuditableEntityUsers {
+    @Schema(description = "Nombre del usuario", example = "Juan Perez")
+    @Column(name = "name", nullable = false, length = 100)
+    private String name;
+
     @Schema(description = "Correo electrónico del usuario", example = "usuario@ejemplo.com")
     @Column(name = "email", nullable = false, unique = true, length = 255)
     private String email;

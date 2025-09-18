@@ -8,9 +8,8 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper = true)
 @MappedSuperclass
-public abstract class AuditableEntityUsers extends ABaseEntityUsers {
+public abstract class AuditableEntityUsers {
     @Id
     @Column(name = "id", nullable = false, updatable = false, length = 36)
     @GeneratedValue(strategy = GenerationType.UUID)
