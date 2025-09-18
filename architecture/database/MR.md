@@ -14,8 +14,8 @@
 ---
 
 ## Module: Content
-- **movie** {id, title, release_year, duration, synopsis, director_id, genre_id}  
-- **series** {id, title, seasons, synopsis, director_id, genre_id}  
+- **movie** {id, name, release_year, duration, synopsis, director_id, genre_id}  
+- **series** {id, name, seasons, synopsis, director_id, genre_id}  
 - **genre** {id, name, description}  
 - **director** {id, name, nationality} 
 ---
