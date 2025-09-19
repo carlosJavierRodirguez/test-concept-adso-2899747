@@ -1,0 +1,82 @@
+@startuml
+title Filmoteca – Class Diagram (IDs only)
+
+' --- MODULE: CONTENT ---
+class movie {
+  + id
+  + director_id
+  + genre_id
+}
+
+class series {
+  + id
+  + director_id
+  + genre_id
+}
+
+class genre {
+  + id
+}
+
+class director {
+  + id
+}
+
+' --- MODULE: USERS ---
+class user {
+  + id
+  + role_id
+  + profile_id
+}
+
+class role {
+  + id
+}
+
+class profile {
+  + id
+}
+
+' --- MODULE: INTERACTIONS ---
+class review {
+  + id
+  + user_id
+  + movie_id
+  + series_id
+}
+
+class playlist {
+  + id
+  + user_id
+}
+
+class playlist_item {
+  + id
+  + playlist_id
+  + movie_id
+  + series_id
+}
+
+' --- RELATIONSHIPS ---
+
+' CONTENT
+director "1" *-- "many" movie
+director "1" *-- "many" series
+genre "1" *-- "many" movie
+genre "1" *-- "many" series
+
+' USERS
+role "1" *-- "many" user
+profile "1" *-- "many" user
+
+' INTERACTIONS
+user "1" *-- "many" review
+movie "1" o-- "many" review
+series "1" o-- "many" review
+
+user "1" *-- "many" playlist
+playlist "1" *-- "many" playlist_item
+movie "1" o-- "many" playlist_item
+series "1" o-- "many" playlist_item
+
+@enduml
