@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entendimiento del Problema - Filmoteca</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="landing.css">
+</head>
+
+<body>
+    <header class="hero-section text-white text-center">
+        <div class="container py-5">
+            <img src="https://img.icons8.com/ios-filled/100/ffffff/movie-projector.png" alt="Filmoteca Logo"
+                class="mb-3" style="width:80px;">
+            <h1 class="display-3 fw-bold mb-2">Filmoteca</h1>
+            <p class="lead fs-4">¡Descubre, organiza y disfruta el mundo del cine!</p>
+        </div>
+    </header>
+    <main class="container my-5">
+        <section class="mb-5">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <h2 class="fw-bold mb-3">¿Cuál es el problema?</h2>
+                    <p class="fs-5">Gestionar y consultar información sobre películas, directores y géneros puede ser
+                        complicado y poco accesible. Filmoteca nace para facilitar la organización, búsqueda y
+                        visualización de toda esta información de manera clara, rápida y divertida.</p>
+                </div>
+                <div class="col-md-5 text-center">
+                    <img src="https://img.icons8.com/ios-filled/200/film-reel.png" alt="Películas"
+                        class="img-fluid animated-float">
+                </div>
+            </div>
+        </section>
+        <section class="mb-5 bg-light rounded-4 p-4 shadow-sm">
+            <div class="row align-items-center flex-md-row-reverse">
+                <div class="col-md-7">
+                    <h2 class="fw-bold mb-3">¿Cómo lo entendimos?</h2>
+                    <p class="fs-5">Analizamos el contexto, identificamos las necesidades de los usuarios y diseñamos
+                        una solución apoyándonos en diagramas visuales y un modelo entidad-relación (MER) robusto. Así,
+                        comprendimos mejor el alcance y los retos del proyecto.</p>
+                    <div class="bg-white rounded-3 p-3 mt-3 border">
+                        <h5 class="fw-bold mb-2 text-primary">Descripción del Modelo Entidad-Relación (MER)</h5>
+                        <ul class="mb-2">
+                            <li><b>Módulo de Contenido:</b> <br>
+                                <span class="text-secondary">movie</span> {id, name, release_year, duration, synopsis,
+                                director_id, genre_id} <br>
+                                <span class="text-secondary">series</span> {id, name, seasons, synopsis, director_id,
+                                genre_id} <br>
+                                <span class="text-secondary">genre</span> {id, name, description} <br>
+                                <span class="text-secondary">director</span> {id, name, nationality}
+                            </li>
+                            <li class="mt-2"><b>Módulo de Usuarios:</b> <br>
+                                <span class="text-secondary">user</span> {id, name, email, password_hash, role_id,
+                                profile_id} <br>
+                                <span class="text-secondary">role</span> {id, name, description} <br>
+                                <span class="text-secondary">profile</span> {id, avatar_url, preferences, country}
+                            </li>
+                            <li class="mt-2"><b>Módulo de Interacciones:</b> <br>
+                                <span class="text-secondary">review</span> {id, content, rating, date, user_id,
+                                movie_id, series_id} <br>
+                                <span class="text-secondary">playlist</span> {id, name, user_id} <br>
+                                <span class="text-secondary">playlist_item</span> {id, playlist_id, movie_id, series_id}
+                            </li>
+                        </ul>
+                        <div class="mb-2">
+                            <b>Relaciones clave:</b>
+                            <ul class="mb-0">
+                                <li>Una <b>película</b> pertenece a un <b>género</b> y un <b>director</b>.</li>
+                                <li>Una <b>serie</b> pertenece a un <b>género</b> y un <b>director</b>.</li>
+                                <li>Un <b>usuario</b> tiene un <b>rol</b> y un <b>perfil</b>.</li>
+                                <li>Un <b>usuario</b> puede escribir <b>reseñas</b> sobre películas o series.</li>
+                                <li>Un <b>usuario</b> puede crear varias <b>listas</b> que contienen películas o series.
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="small text-muted">Convenciones: snake_case, UUIDs, campos de auditoría, claves
+                            foráneas con reglas de actualización y borrado, unicidad en códigos y nombres.</div>
+                    </div>
+                </div>
+                <div class="col-md-5 text-center">
+                    <img src="../database/architecture/class/class.png" alt="Diagrama de Clases"
+                        class="img-fluid rounded-3 border border-2 border-primary shadow-sm">
+                    <div class="small text-muted mt-2">Diagrama de Clases</div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-5">
+            <h2 class="fw-bold mb-4 text-center">Visualiza la arquitectura del sistema</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <img src="../database/architecture/class/class.png" class="card-img-top"
+                            alt="Diagrama de Clases">
+                        <div class="card-body">
+                            <h5 class="card-title">Clases</h5>
+                            <p class="card-text">Relaciones entre películas, directores, géneros y usuarios.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <img src="../database/architecture/packeage/packeage.png" class="card-img-top"
+                            alt="Diagrama de Paquetes">
+                        <div class="card-body">
+                            <h5 class="card-title">Paquetes</h5>
+                            <p class="card-text">Organización modular para un desarrollo ágil y mantenible.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <img src="../database/architecture/secuence/secuence.png" class="card-img-top"
+                            alt="Diagrama de Secuencia">
+                        <div class="card-body">
+                            <h5 class="card-title">Secuencia</h5>
+                            <p class="card-text">Flujo de información y acciones entre los componentes.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow-sm hover-card">
+                        <img src="../database/architecture/use_case/use_case.png" class="card-img-top"
+                            alt="Diagrama de Casos de Uso">
+                        <div class="card-body">
+                            <h5 class="card-title">Casos de Uso</h5>
+                            <p class="card-text">Acciones principales que los usuarios pueden realizar.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="mb-5 bg-primary bg-gradient text-white rounded-4 p-4 shadow-sm">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h2 class="fw-bold mb-3">¿Cómo está estructurado el proyecto?</h2>
+                    <ul class="fs-5">
+                        <li><b>Módulo de Contenido:</b> Películas, series, géneros y directores.</li>
+                        <li><b>Módulo de Usuarios:</b> Usuarios, roles y perfiles.</li>
+                        <li><b>Módulo de Interacciones:</b> Reseñas y listas de reproducción.</li>
+                        <li><b>Relaciones clave:</b> Un usuario puede crear listas, escribir reseñas y explorar
+                            contenido.</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 text-center">
+                    <img src="https://img.icons8.com/ios-filled/150/ffffff/organization.png" alt="Estructura"
+                        class="img-fluid animated-float">
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer-custom text-center py-4">
+        <div class="container">
+            <small class="text-white">&copy; 2025 Filmoteca. Todos los derechos reservados.</small>
+        </div>
+    </footer>
+</body>
+
+</html>
